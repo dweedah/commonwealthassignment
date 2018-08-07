@@ -18,7 +18,6 @@ class Tournament {
       result += aSport + View.NEWLINE()
     }
     return result
-
   }
   getTeams() {
     let result = ''
@@ -69,27 +68,24 @@ class Tournament {
   }
   
   getResults () {
-    let result = ''
+    document.getElementById("maindiv").innerHTML = ''
     for (let aSport of this.allMySports) {
-      result += aSport.getResults() + View.NEWLINE()
+      aSport.getResults("allResults")
     }
-    return result
   }
   
     getMatchResults() {
-    let result = ''
+    document.getElementById("maindiv").innerHTML = ''
     for (let aSport of this.allMySports) {
-      result += aSport.getMatchResults() + View.NEWLINE()
+      aSport.getResults("allMatchResults")
     }
-    return result
   }
   
     getTeamResults() {
-    let result = ''
+    document.getElementById("maindiv").innerHTML = ''
     for (let aSport of this.allMySports) {
-      result += aSport.getTeamResults() + View.NEWLINE()
+      aSport.getResults("allTeamResults")
     }
-    return result
   }
   
   getAll() {

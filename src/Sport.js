@@ -112,11 +112,26 @@ class Sport {
   
   getMatchResults () {
     this.sortMatchesByPool()
-    let result = '*' + this.name + View.NEWLINE()
+    let result = ''
+    
+    let maindiv = document.getElementById("maindiv")
+    
+    let sportname = document.createElement("h1")
+    let maintext = document.createElement("p")
+    
     for (let aMatch of this.allMyMatches) {
       result += aMatch + View.NEWLINE()
     }
-    return result
+
+    sportname.innerHTML +=(this.name + '<br>')    
+    maintext.innerHTML += (result)  
+    
+    sportname.className = "sportsmain"
+    maintext.className = "textmain"
+    
+    maindiv.appendChild(sportname)
+    maindiv.appendChild(maintext)
+    
   }
   
   
@@ -154,8 +169,15 @@ class Sport {
   }
   
   getResults () {
-    let result = `Results for ${this.name}` + View.NEWLINE()
+      
     this.sortPools()
+    let result = ''
+    
+    let maindiv = document.getElementById("maindiv")
+    
+    let sportname = document.createElement("h1")
+    let maintext = document.createElement("p")
+      
     for (let aMatch of this.allMyMatches) {
       let thePool = aMatch.myPool
       thePool.addMatch(aMatch)
@@ -165,7 +187,16 @@ class Sport {
       result += aPool + View.NEWLINE()
       result += aPool.getResults()
     }
-    return result
+
+    sportname.innerHTML +=('Results for ' + this.name + '<br>')    
+    maintext.innerHTML += (result)  
+    
+    sportname.className = "sportsmain"
+    maintext.className = "textmain"
+    
+    maindiv.appendChild(sportname)
+    maindiv.appendChild(maintext)
+    
   }
   
     sortTeams () {
@@ -181,13 +212,54 @@ class Sport {
   } 
   
   
-    getTeamResults() {
+  
+  getResults(request) {
     this.sortTeams()
-    let result = '*' + this.name + View.NEWLINE()
-    for (let aTeam of this.allMyTeams) {
-      result += View.padRight(aTeam, 20) + aTeam.getResults() + View.NEWLINE()
+    let result = ''
+    
+    let maindiv = document.getElementById("maindiv")
+    
+    let sportname = document.createElement("h1")
+    let maintext = document.createElement("p")
+    
+    if (request === "allMatchResults") {
+      this.sortMatchesByPool()
+      for (let aMatch of this.allMyMatches) {
+        result += aMatch + View.NEWLINE()
+      }
+    sportname.innerHTML +=(this.name + '<br>')    
+    maintext.innerHTML += (result) 
+    
     }
-    result += View.NEWLINE()
-    return result
+    else if (request === "allTeamResults") {
+      this.sortTeams()
+      for (let aTeam of this.allMyTeams) {
+        result += View.padRight(aTeam, 20) + aTeam.getResults() + View.NEWLINE()
+      }
+      sportname.innerHTML +=(this.name + '<br>')    
+      maintext.innerHTML += (result) 
+      
+    }
+      
+    else if (request === "allResults") {
+      for (let aMatch of this.allMyMatches) {
+        let thePool = aMatch.myPool
+        thePool.addMatch(aMatch)
+      }
+    
+      for (let aPool of this.allMyPools) {
+        result += aPool + View.NEWLINE()
+        result += aPool.getResults()
+      }
+
+      sportname.innerHTML +=('Results for ' + this.name + '<br>')    
+      maintext.innerHTML += (result)
+      
+    }
+    sportname.className = "sportsmain"
+    maintext.className = "textmain"
+    
+    maindiv.appendChild(sportname)
+    maindiv.appendChild(maintext)
   }
 }

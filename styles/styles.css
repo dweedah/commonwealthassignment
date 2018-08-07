@@ -1,0 +1,21 @@
+#title {
+    font-size:3rem;
+    text-align: center;
+}
+
+#buttons {
+    text-align:center;
+}
+
+#maindiv {
+    margin:auto;
+    width:80%;
+}
+
+.textmain {
+    font-size:1rem;
+}
+
+.sportsmain {
+    font-size:2rem;
+}
