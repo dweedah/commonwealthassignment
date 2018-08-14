@@ -14,10 +14,22 @@
   <script src="src/Controller.js"></script>
   <script src="src/addPoolResults.js"></script>
   <script src="src/shortNames.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
   <div id="divDisplay"></div>
 </head>
           
 <body>
+
+<p id="title">Commonwealth Games 2018</p>
+
+<div id="buttons">
+    <button onclick="matchResults()">Match Results</button>
+    <button onclick="teamResults()">Team Results</button>
+    <button onclick="matchesResults()">Score Table</button>
+</div>
+
+<div id="maindiv"></div>
+
   <script>
   var the2018Games // GLOBAL FOR DEBUGGING
     var go = function () {
@@ -26,12 +38,23 @@
       document.body.style.fontFamily = 'Courier New'
       addPoolResults(the2018Games) // NEW LINE FOR ASSIGNMENT 2
       addShortNames(the2018Games) // NEW LINE FOR ASSIGNMENT 2
-      theDisplay.innerHTML = the2018Games.getAll()
+      //theDisplay.innerHTML = the2018Games.getAll()
+      //document.getElementById("matchresults").innerHTML = the2018Games.getMatchResults();
       console.log( the2018Games ) 
-      document.body.style.backgroundColor = "red";
     }
-
     window.onload = go;
+    
+    function matchResults() {
+      the2018Games.getMatchResults();
+    }
+    
+    function teamResults() {
+      the2018Games.getTeamResults();
+    }
+    
+    function matchesResults() {
+      the2018Games.getResults();
+    }
   </script> 
 </body> 
  
