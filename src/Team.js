@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* global View */
+
 class Team {
   constructor (newName) {
     this.name = newName
@@ -10,22 +13,22 @@ class Team {
     this.scoreAgainst = 0
     this.poolRank = 0
   }
-  incWin() {
-    this.matchesWon += 1 
+  incWin () {
+    this.matchesWon += 1
   }
-  incLoss() {
-    this.matchesLost += 1 
+  incLoss () {
+    this.matchesLost += 1
   }
-  incPlayed() {
+  incPlayed () {
     this.matchesPlayed += 1
   }
-  incScoreFor(newScoreFor) {
+  incScoreFor (newScoreFor) {
     this.scoreFor += newScoreFor
   }
-  incScoreAgainst(newScoreAgainst) {
-    this.scoreAgainst += newScoreAgainst 
+  incScoreAgainst (newScoreAgainst) {
+    this.scoreAgainst += newScoreAgainst
   }
-  toString() {
+  toString () {
     return this.name
   }
   getResults () {
