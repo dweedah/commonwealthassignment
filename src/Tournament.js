@@ -20,6 +20,7 @@ class Tournament {
       result += aSport + View.NEWLINE()
     }
     return result
+
   }
   getTeams () {
     let result = ''
@@ -68,24 +69,49 @@ class Tournament {
   }
 
   getResults () {
+<<<<<<< HEAD
     document.getElementById('maindiv').innerHTML = ''
     for (let aSport of this.allMySports) {
       aSport.getResults('allResults')
+=======
+    let result = ''
+    for (let aSport of this.allMySports) {
+      result += aSport.getResults() + View.NEWLINE()
+>>>>>>> parent of eba115b... it1
     }
+    return result
   }
+<<<<<<< HEAD
 
   getMatchResults () {
     document.getElementById('maindiv').innerHTML = ''
     for (let aSport of this.allMySports) {
       aSport.getResults('allMatchResults')
+=======
+  
+    getMatchResults() {
+    let result = ''
+    for (let aSport of this.allMySports) {
+      result += aSport.getMatchResults() + View.NEWLINE()
+>>>>>>> parent of eba115b... it1
     }
+    return result
   }
+<<<<<<< HEAD
 
   getTeamResults () {
     document.getElementById('maindiv').innerHTML = ''
     for (let aSport of this.allMySports) {
       aSport.getResults('allTeamResults')
+=======
+  
+    getTeamResults() {
+    let result = ''
+    for (let aSport of this.allMySports) {
+      result += aSport.getTeamResults() + View.NEWLINE()
+>>>>>>> parent of eba115b... it1
     }
+    return result
   }
 
   getAll () {

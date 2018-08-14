@@ -108,7 +108,21 @@ class Sport {
       }
     })
   }
+<<<<<<< HEAD
 
+=======
+  
+  getMatchResults () {
+    this.sortMatchesByPool()
+    let result = '*' + this.name + View.NEWLINE()
+    for (let aMatch of this.allMyMatches) {
+      result += aMatch + View.NEWLINE()
+    }
+    return result
+  }
+  
+  
+>>>>>>> parent of eba115b... it1
   getNZMatches () {
     this.sortMatchesByPool()
     let result = '*' + this.name + View.NEWLINE()
@@ -141,6 +155,7 @@ class Sport {
     let theTeam = this.findTeam(fullTeamName)
     theTeam.shortName = shortTeamName
   }
+<<<<<<< HEAD
 
   getResults (request) {
     this.sortTeams()
@@ -187,5 +202,44 @@ class Sport {
 
     maindiv.appendChild(sportname)
     maindiv.appendChild(maintext)
+=======
+  
+  getResults () {
+    let result = `Results for ${this.name}` + View.NEWLINE()
+    this.sortPools()
+    for (let aMatch of this.allMyMatches) {
+      let thePool = aMatch.myPool
+      thePool.addMatch(aMatch)
+    }
+    
+    for (let aPool of this.allMyPools) {
+      result += aPool + View.NEWLINE()
+      result += aPool.getResults()
+    }
+    return result
+  }
+  
+    sortTeams () {
+    this.allMyTeams.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1
+      } // a must be equal to b
+      return 0
+    })
+  } 
+  
+  
+    getTeamResults() {
+    this.sortTeams()
+    let result = '*' + this.name + View.NEWLINE()
+    for (let aTeam of this.allMyTeams) {
+      result += View.padRight(aTeam, 20) + aTeam.getResults() + View.NEWLINE()
+    }
+    result += View.NEWLINE()
+    return result
+>>>>>>> parent of eba115b... it1
   }
 }
